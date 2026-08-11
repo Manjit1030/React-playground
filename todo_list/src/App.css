@@ -1,0 +1,263 @@
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  background:
+    radial-gradient(circle at top left, rgba(46, 196, 182, 0.18), transparent 32%),
+    linear-gradient(135deg, #f7fbff 0%, #edf2f7 100%);
+}
+
+.todo-panel {
+  width: min(100%, 760px);
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #dbe4ef;
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(37, 54, 84, 0.14);
+}
+
+.todo-header {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: #2c7a7b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  color: #172033;
+  font-size: 2.35rem;
+  line-height: 1.1;
+}
+
+.todo-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+input[type='text'] {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #172033;
+  font: inherit;
+  background: #ffffff;
+  outline: none;
+}
+
+input[type='text']:focus {
+  border-color: #2c7a7b;
+  box-shadow: 0 0 0 3px rgba(44, 122, 123, 0.18);
+}
+
+button {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  background: #1f6f78;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+button:hover:not(:disabled) {
+  background: #195c64;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.filter-button,
+.secondary-button {
+  color: #294052;
+  background: #e8eef5;
+}
+
+.filter-button:hover,
+.secondary-button:hover {
+  background: #dbe5ef;
+}
+
+.filter-button.active {
+  color: #ffffff;
+  background: #1f6f78;
+}
+
+.todo-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #dbe4ef;
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.todo-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #1f6f78;
+}
+
+.todo-text {
+  min-width: 0;
+  color: #172033;
+  overflow-wrap: anywhere;
+}
+
+.todo-text.completed {
+  color: #7a8796;
+  text-decoration: line-through;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.delete-button {
+  background: #c24141;
+}
+
+.delete-button:hover {
+  background: #9f3333;
+}
+
+.edit-form {
+  grid-column: 2 / 4;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+.todo-footer {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+}
+
+.todo-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #526173;
+  font-size: 0.95rem;
+}
+
+.todo-stats span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef4f8;
+}
+
+.clear-button {
+  white-space: nowrap;
+}
+
+.empty-state {
+  margin: 24px 0;
+  padding: 26px 16px;
+  border: 1px dashed #b7c5d5;
+  border-radius: 8px;
+  color: #64748b;
+  text-align: center;
+  background: #f8fbfd;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .app {
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .todo-panel {
+    padding: 22px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .todo-form,
+  .edit-form,
+  .todo-item,
+  .todo-footer {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-item {
+    align-items: stretch;
+  }
+
+  .todo-checkbox {
+    justify-self: start;
+  }
+
+  .item-actions,
+  .todo-footer {
+    width: 100%;
+  }
+
+  .item-actions button,
+  .todo-form button,
+  .edit-form button,
+  .clear-button {
+    width: 100%;
+  }
+
+  .todo-footer {
+    display: grid;
+  }
+}
